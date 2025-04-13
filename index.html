@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星穹鐵道解鎖器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        #click-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+        }
+        #click-button:hover {
+            background-color: #45a049;
+        }
+        #click-counter {
+            font-size: 24px;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>星穹鐵道解鎖器</h1>
+        <p id="click-counter">已點擊 0 / 10000 次</p>
+        <button id="click-button">點擊我解鎖星穹鐵道</button>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        const TARGET_CLICKS = 10000;
+        const clickButton = document.getElementById("click-button");
+        const clickCounter = document.getElementById("click-counter");
+
+        clickButton.addEventListener("click", () => {
+            clickCount++;
+            clickCounter.textContent = `已點擊 ${clickCount} / ${TARGET_CLICKS} 次`;
+
+            if (clickCount >= TARGET_CLICKS) {
+                alert("恭喜！星穹鐵道已解鎖！");
+                clickButton.disabled = true;
+                clickButton.textContent = "已解鎖！";
+            }
+        });
+    </script>
+</body>
+</html>
